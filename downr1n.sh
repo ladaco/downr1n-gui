@@ -598,11 +598,11 @@ if [ true ]; then
         "$dir"/iproxy 6413 22 >/dev/null &
     fi
 
-    if ! ("$dir"/sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no -p6413 root@localhost "echo connected" &> /dev/null); then
+    if ! ("$dir"/sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no -p 6413 root@localhost "echo connected" &> /dev/null); then
         echo "[*] Waiting for the ramdisk to finish booting"
     fi
 
-    while ! ("$dir"/sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no -p6413 root@localhost "echo connected" &> /dev/null); do
+    while ! ("$dir"/sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no -p 6413 root@localhost "echo connected" &> /dev/null); do
         sleep 1
     done
 
