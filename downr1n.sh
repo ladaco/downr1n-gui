@@ -35,7 +35,7 @@ fi
 # =========
 remote_cmd() {
     sleep 1
-    "$dir"/sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no -p6413 root@localhost "$@"
+    "$dir"/sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no -p 6413 root@localhost "$@"
     sleep 1
 }
 
@@ -44,7 +44,7 @@ remote_cp() {
     if [ "$downgrade" ]; then
         "$dir"/sshpass -p 'alpine' rsync -rvz -e 'ssh -p 6413' "$@"
     else
-        "$dir"/sshpass -p 'alpine' scp -r -o StrictHostKeyChecking=no -P6413 $@
+        "$dir"/sshpass -p 'alpine' scp -r -o StrictHostKeyChecking=no -p 6413 $@
     fi
 
     sleep 1
